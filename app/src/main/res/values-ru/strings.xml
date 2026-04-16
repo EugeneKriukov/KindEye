@@ -198,11 +198,6 @@
     <string name="parental_wrong_password">Неверный пароль. Попробуйте ещё раз.</string>
     <string name="parental_btn_enter">Войти</string>
 
-    <!-- Разрешение администратора устройства -->
-    <string name="perm_admin_title">Администратор устройства</string>
-    <string name="perm_admin_reason">Опционально. Запрещает остановку через настройки системы.</string>
-
-
     <!-- Раздел инструкций в PermissionsActivity -->
     <string name="perm_instruction_title">Дополнительная настройка устройства</string>
     <string name="perm_instruction_disclaimer">Следующие инструкции актуальны для современных устройств под управлением MIUI/HyperOS. Шаги могут отличаться в зависимости от производителя устройства.</string>
