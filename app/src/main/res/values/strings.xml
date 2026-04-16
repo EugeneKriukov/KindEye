@@ -210,12 +210,6 @@
     <string name="parental_wrong_password">Incorrect password. Try again.</string>
     <string name="parental_btn_enter">Confirm</string>
 
-
-    <!-- Device Admin permission -->
-    <string name="perm_admin_title">Device Administrator</string>
-    <string name="perm_admin_reason">Optionally. Prevents stopping via system settings.</string>
-
-
     <!-- PermissionsActivity MIUI instruction section -->
     <string name="perm_instruction_title">Additional Device Setup</string>
     <string name="perm_instruction_disclaimer">The following instructions are relevant for modern devices running MIUI/HyperOS. Steps may differ depending on your device manufacturer.</string>
