@@ -50,6 +50,8 @@ class MonitoringService : Service(), LifecycleOwner {
         const val ACTION_STOP          = "com.eyeguard.app.STOP"
         const val ACTION_CALIBRATE     = "com.eyeguard.app.CALIBRATE"
         const val ACTION_EXERCISE_DONE = "com.eyeguard.app.EXERCISE_DONE"
+        // Sent by AlarmManager on swipe-kill restart — triggers session restore, not fresh start
+        const val ACTION_RESTART       = "com.eyeguard.app.RESTART"
 
         const val BROADCAST_CALIBRATION_RESULT = "com.eyeguard.app.CALIBRATION_RESULT"
         const val EXTRA_CALIBRATION_SUCCESS    = "calibration_success"
@@ -153,6 +155,14 @@ class MonitoringService : Service(), LifecycleOwner {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // FIX 3: If the service was already cleaned up (lifecycle DESTROYED) but the process
+        // wasn't killed yet, refuse to restart in this instance. The AlarmManager will fire
+        // again after the process dies and a fresh instance is created.
+        if (lifecycleRegistry.currentState == Lifecycle.State.DESTROYED) {
+            Log.d(TAG, "onStartCommand on destroyed instance — ignoring")
+            return START_NOT_STICKY
+        }
+
         // Named actions — handled and returned immediately
         when (intent?.action) {
             ACTION_STOP -> {
@@ -165,6 +175,11 @@ class MonitoringService : Service(), LifecycleOwner {
             }
             ACTION_EXERCISE_DONE -> {
                 onExerciseDone()
+                return START_STICKY
+            }
+            ACTION_RESTART -> {
+                // AlarmManager restart after swipe-kill — restore session, don't reset
+                handleServiceRestart()
                 return START_STICKY
             }
         }
@@ -204,7 +219,9 @@ class MonitoringService : Service(), LifecycleOwner {
         }
         val pi = PendingIntent.getService(
             applicationContext, 1,
-            Intent(applicationContext, MonitoringService::class.java),
+            Intent(applicationContext, MonitoringService::class.java).apply {
+                action = ACTION_RESTART   // distinguishes from user-initiated start
+            },
             PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
         )
         // setExactAndAllowWhileIdle fires even in Doze mode — more reliable on MIUI
@@ -339,8 +356,6 @@ class MonitoringService : Service(), LifecycleOwner {
             // Continue the existing session — restore elapsed time
             sessionElapsedBeforeMs = savedElapsedMs
             sessionStartMs = System.currentTimeMillis()
-            // Reset screen-off timestamp since we're back
-            prefs.screenOffTimeMs = 0L
             warning5MinSent = false
             warning1MinSent = false
             Log.d(TAG, "Session restored: elapsed=${savedElapsedMs}ms, gap=${gapMs}ms")
@@ -350,8 +365,20 @@ class MonitoringService : Service(), LifecycleOwner {
             startNewSession()
             return
         }
-        startCamera()
-        scheduleBreakCheck()
+
+        // FIX 2: Only start camera and schedule break check if screen is ON.
+        // If screen is off, leave screenOffTimeMs intact so onScreenOn() can
+        // resume the session correctly when the screen wakes.
+        val isScreenOn = (getSystemService(Context.POWER_SERVICE) as android.os.PowerManager)
+            .isInteractive
+        if (isScreenOn) {
+            prefs.screenOffTimeMs = 0L
+            startCamera()
+            scheduleBreakCheck()
+        } else {
+            Log.d(TAG, "Session restored but screen is OFF — waiting for onScreenOn()")
+            // screenOffTimeMs stays intact so onScreenOn() knows when screen went off
+        }
     }
 
     private fun scheduleBreakCheck() {
