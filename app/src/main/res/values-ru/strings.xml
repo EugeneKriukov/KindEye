@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kind Eye</string>
+    <string name="title_settings">Настройки</string>
+    <string name="title_eye_exercise">Зарядка для глаз</string>
+    <string name="title_permissions">Разрешения</string>
+    <string name="title_who_info">Рекомендации ВОЗ</string>
+    <string name="title_calibration">Калибровка</string>
+
+    <string name="app_subtitle">Защита зрения ребёнка. Прежде чем запустить, откалибруйте расстояние в настройках.</string>
+    <string name="btn_start_monitoring">Включить защиту</string>
+    <string name="btn_stop_monitoring">Выключить защиту</string>
+    <string name="btn_settings">Настройки</string>
+    <string name="btn_permissions">Разрешения</string>
+    <string name="btn_who_info">Рекомендации ВОЗ</string>
+    <string name="status_running">Защита включена</string>
+    <string name="status_stopped">Защита выключена</string>
+    <string name="status_sub_running">Камера следит за расстоянием до экрана</string>
+    <string name="status_sub_stopped">Нажмите кнопку чтобы включить защиту</string>
+
+    <string name="info_current_settings">Текущие настройки</string>
+    <string name="info_distance">Расстояние: не менее %d см</string>
+    <string name="info_break">Перерыв: каждые %d мин, %d мин отдыха</string>
+    <string name="info_language">Язык: %s</string>
+    <string name="info_who_title">Рекомендации ВОЗ</string>
+    <string name="info_who_1">Правило 20-20-20: каждые 20 мин смотреть вдаль</string>
+    <string name="info_who_2">Расстояние не менее 40 см для устройства</string>
+    <string name="info_who_3">До 5 лет: не более 1 часа экрана в день</string>
+
+    <!-- NO emojis in messages — TTS reads them -->
+    <string name="default_distance_message">Солнышко, отодвинься чуть подальше от экрана</string>
+    <string name="default_break_message">Устройство немного устало, давай вместе отдохнём</string>
+    <string name="thank_you">Вот молодец! Ты заботишься о своих глазках</string>
+
+    <!-- Break announcement -->
+    <string name="break_announcement">Перерыв! Отдыхаем %d минут</string>
+    <string name="break_rest_remaining">Осталось отдыхать:</string>
+    <string name="break_over">Перерыв закончился! Можно продолжать.</string>
+    <string name="break_word">Перерыв</string>
+
+    <string name="break_warning_5min">Совсем скоро перерыв — через 5 минут</string>
+    <string name="break_warning_1min">Через минутку будет перерыв, приготовься</string>
+
+    <!-- Settings sections — emojis only in code -->
+    <string name="settings_section_language">Язык</string>
+    <string name="settings_section_calibration">Калибровка</string>
+    <string name="settings_section_break">Перерывы</string>
+    <string name="settings_section_exercise">Зарядка для глаз</string>
+
+    <string name="pref_distance_message">Сообщение при близком расстоянии</string>
+    <string name="pref_distance_tts">Озвучивать предупреждение</string>
+    <string name="pref_thank_you_message">Текст похвалы после отодвигания</string>
+    <string name="pref_thank_you_tts">Озвучивать похвалу</string>
+    <string name="pref_break_interval">Перерыв каждые (минут)</string>
+    <string name="pref_break_duration">Длительность перерыва (минут)</string>
+    <string name="pref_break_message">Сообщение во время перерыва</string>
+    <string name="pref_break_tts">Озвучивать сообщение перерыва</string>
+    <string name="pref_exercise_tts">Озвучивать упражнения</string>
+    <string name="pref_exercise_during_break">Делать зарядку для глаз во время перерыва</string>
+    <string name="pref_language">Язык приложения</string>
+
+    <string name="label_break_every">Перерыв каждые %d мин (рекомендация ВОЗ: 20 мин)</string>
+    <string name="label_break_duration">Длительность: %d мин</string>
+    <string name="label_distance_cm">%d см</string>
+    <string name="label_minutes">%d мин</string>
+
+    <string name="btn_save">Сохранить</string>
+    <string name="btn_grant">Разрешить</string>
+    <string name="btn_calibrate">Калибровать</string>
+    <string name="btn_calibrate_start">Начать калибровку</string>
+    <string name="settings_saved">Настройки сохранены!</string>
+
+    <string name="calibration_full_hint">Установите устройство на нужном расстоянии от лица ребёнка, убедитесь что лицо видно в камере, затем нажмите Калибровать. Ползунок задаёт эталонное расстояние для калибровки.</string>
+    <string name="lang_switch_hint">После смены языка задайте новые пользовательские сообщения для событий, указанных ниже.</string>
+    <string name="section_praise">Текст похвалы</string>
+    <string name="break_interval_label">Делать перерыв каждые N минут:</string>
+    <string name="break_duration_label">Длительность перерыва:</string>
+    <string name="try_exercise">Попробовать зарядку</string>
+
+    <string name="perm_camera_title">Камера</string>
+    <string name="perm_camera_reason">Нужна для определения расстояния от глаз до экрана. Видео не записывается.</string>
+    <string name="perm_overlay_title">Показ поверх приложений</string>
+    <string name="perm_overlay_reason">Нужно для отображения таймера перерыва и предупреждений поверх любых приложений.</string>
+    <string name="perm_notification_title">Уведомления</string>
+    <string name="perm_notification_reason">Нужны для постоянного уведомления о работе защиты в фоне.</string>
+    <string name="perm_all_ok">Все разрешения получены! Можно включить защиту.</string>
+    <string name="perm_not_all">Предоставьте все разрешения для полноценной работы.</string>
+    <string name="perm_granted">Разрешено</string>
+    <string name="perm_denied">Не разрешено</string>
+
+    <!-- Eye exercises -->
+    <string name="exercise_skip">Пропустить</string>
+    <string name="exercise_next">Следующее</string>
+    <string name="exercise_done">Отличная работа! Глазки отдохнули!</string>
+    <string name="exercise_of">Упражнение</string>
+    <string name="exercise_of_total">из</string>
+    <string name="exercise_1_title">Моргание</string>
+    <string name="exercise_1_desc">Моргай быстро, как бабочка машет крыльями</string>
+    <string name="exercise_2_title">Вверх-вниз</string>
+    <string name="exercise_2_desc">Медленно посмотри вверх, потом медленно посмотри вниз</string>
+    <string name="exercise_3_title">Влево-вправо</string>
+    <string name="exercise_3_desc">Посмотри влево, потом посмотри вправо. Не двигай головой</string>
+    <string name="exercise_4_title">Кружочки</string>
+    <string name="exercise_4_desc">Медленно крути глазами по кругу, сначала в одну сторону, потом в другую</string>
+    <string name="exercise_5_title">Близко-далеко</string>
+    <string name="exercise_5_desc">Смотри на кончик пальца, теперь смотри далеко вдаль</string>
+    <string name="exercise_6_title">Ладошки</string>
+    <string name="exercise_6_desc">Потри ладошки друг о друга, потом мягко накрой глаза тёплыми ладошками</string>
+
+    <string name="notif_channel_name">Kind Eye — Защита зрения</string>
+    <string name="notif_title">Kind Eye работает</string>
+    <string name="notif_text">Защита зрения включена</string>
+    <string name="notif_stop">Остановить</string>
+
+    <string name="calibration_place_face">Поместите лицо ребёнка в овал на нужном расстоянии</string>
+    <string name="calibration_face_found">Лицо найдено! Держите неподвижно</string>
+    <string name="calibration_success">Готово! Откалибровано!</string>
+    <string name="calibration_no_face">Лицо не обнаружено. Убедитесь, что лицо видно в камере.</string>
+    <string name="calibration_distance_label">На каком расстоянии находится лицо?</string>
+    <string name="calibration_hint">Убедитесь, что лицо хорошо освещено и смотрит прямо в камеру</string>
+
+    <string name="who_title">Рекомендации ВОЗ</string>
+    <string name="who_rule_title">Правило 20-20-20</string>
+    <string name="who_rule_desc">Каждые 20 минут смотрите на что-то на расстоянии 6 метров в течение 20 секунд. Это расслабляет глазные мышцы и снижает усталость от экрана.</string>
+    <string name="who_distance_title">Рекомендуемые расстояния до экрана</string>
+    <string name="who_distance_note">По рекомендациям ВОЗ и Американской академии офтальмологии: держите экран на расстоянии вытянутой руки, угол обзора вниз 15–20 градусов.</string>
+    <string name="who_age_title">Нормы времени экрана по возрасту (ВОЗ 2019)</string>
+    <string name="who_tips_title">Советы для родителей</string>
+
+    <string name="who_dist_phone">Смартфон</string>
+    <string name="who_dist_phone_val">минимум 30–40 см</string>
+    <string name="who_dist_tablet_small">Планшет 7–8 дюймов</string>
+    <string name="who_dist_tablet_small_val">минимум 40–50 см</string>
+    <string name="who_dist_tablet_large">Планшет 10–11\"</string>
+    <string name="who_dist_tablet_large_val">минимум 50–60 см</string>
+    <string name="who_dist_laptop">Ноутбук 13–15 дюймов</string>
+    <string name="who_dist_laptop_val">минимум 60–70 см</string>
+    <string name="who_dist_monitor">Монитор настольный</string>
+    <string name="who_dist_monitor_val">минимум 60–90 см</string>
+
+    <string name="who_age_0">До 2 лет</string>
+    <string name="who_age_0_norm">Противопоказан</string>
+    <string name="who_age_2">2–5 лет</string>
+    <string name="who_age_2_norm">Не более 1 часа в день</string>
+    <string name="who_age_6">6–12 лет</string>
+    <string name="who_age_6_norm">Не более 2 часов в день</string>
+    <string name="who_age_12">12–18 лет</string>
+    <string name="who_age_12_norm">Умеренно</string>
+    <string name="who_source">Источник: ВОЗ «Рекомендации по физической активности, малоподвижному поведению и сну для детей до 5 лет», 2019</string>
+
+    <string name="who_tip_1">Используйте устройства при хорошем освещении, не в темноте</string>
+    <string name="who_tip_2">Следите за осанкой: спина прямая, экран на уровне глаз</string>
+    <string name="who_tip_3">Делайте перерывы на прогулки — это лучший отдых для глаз</string>
+    <string name="who_tip_4">Не давайте устройство за 1 час до сна — синий свет мешает засыпанию</string>
+    <string name="who_tip_5">Настройте яркость экрана под освещение в комнате</string>
+
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="error_tts">Ошибка синтеза речи. Проверьте настройки TTS в системе Android.</string>
+    <string name="break_time_remaining">Ещё %d мин отдыха</string>
+    <string name="new_session_start">Добро пожаловать! Начинаем новую сессию.</string>
+
+    <!-- Break screen (BreakActivity) -->
+    <string name="title_break">Перерыв</string>
+    <string name="notif_break_title">Время перерыва!</string>
+    <string name="notif_break_channel_name">Kind Eye — Перерыв</string>
+
+    <!-- About screen -->
+    <string name="title_about">Об авторе</string>
+    <string name="btn_about">Об авторе</string>
+    <string name="about_author_header">Об авторе</string>
+    <string name="about_linkedin_title">Моя страница в LinkedIn</string>
+    <string name="about_donate_title">Поддержать проект</string>
+    <string name="about_donate_hint">Приложение бесплатное, но вы можете поблагодарить автора, отправив донат в удобной для вас криптовалюте на соответствующий адрес сети.</string>
+    <string name="about_free_note">Kind Eye полностью бесплатен и создан с любовью к здоровью детей.</string>
+    <string name="about_tap_to_copy">Нажмите на адрес чтобы скопировать</string>
+    <string name="about_copied_eth">Адрес сети Ethereum (ETH) скопирован</string>
+    <string name="about_copied_sol">Адрес сети Solana (SOL) скопирован</string>
+    <string name="about_copied_trx">Адрес сети TRON (TRX) скопирован</string>
+
+    <!-- Parental control -->
+    <string name="settings_section_parental">Родительский контроль</string>
+    <string name="parental_hint">Установите пароль, чтобы ребёнок не мог открыть приложение и изменить настройки. Пароль будет запрашиваться каждый раз при открытии приложения.</string>
+    <string name="parental_status_active">Пароль установлен — защита активна</string>
+    <string name="parental_status_inactive">Пароль не установлен</string>
+    <string name="parental_new_password_hint">Новый пароль (минимум 4 символа)</string>
+    <string name="parental_confirm_password_hint">Подтвердите пароль</string>
+    <string name="parental_btn_set">Установить пароль</string>
+    <string name="parental_btn_change">Изменить пароль</string>
+    <string name="parental_btn_remove">Удалить пароль</string>
+    <string name="parental_saved">Пароль сохранён!</string>
+    <string name="parental_removed">Пароль удалён</string>
+    <string name="parental_error_empty">Введите пароль</string>
+    <string name="parental_error_too_short">Пароль должен быть не менее 4 символов</string>
+    <string name="parental_error_mismatch">Пароли не совпадают</string>
+    <string name="parental_enter_password">Введите родительский пароль</string>
+    <string name="parental_password_hint">Пароль</string>
+    <string name="parental_wrong_password">Неверный пароль. Попробуйте ещё раз.</string>
+    <string name="parental_btn_enter">Войти</string>
+
+    <!-- Разрешение администратора устройства -->
+    <string name="perm_admin_title">Администратор устройства</string>
+    <string name="perm_admin_reason">Опционально. Запрещает остановку через настройки системы.</string>
+
+
+    <!-- Раздел инструкций в PermissionsActivity -->
+    <string name="perm_instruction_title">Дополнительная настройка устройства</string>
+    <string name="perm_instruction_disclaimer">Следующие инструкции актуальны для современных устройств под управлением MIUI/HyperOS. Шаги могут отличаться в зависимости от производителя устройства.</string>
+    <string name="perm_instruction_1_title">1. Отключите ограничения батареи</string>
+    <string name="perm_instruction_1_body">Зайдите в Настройки → Приложения → Kind Eye → Питание → Без ограничений. Это нужно, чтобы система автоматически не закрывала приложение, если посчитает, что оно не используется.</string>
+    <string name="perm_instruction_2_title">2. Разрешите автозапуск в фоне</string>
+    <string name="perm_instruction_2_body">Зайдите в Настройки → Приложения → Автозапуск в фоне → Kind Eye. Это нужно, чтобы система автоматически перезапускала приложение, если оно закрылось.</string>
+    <string name="perm_instruction_3_title">3. Закрепите приложение в Недавних</string>
+    <string name="perm_instruction_3_body">После запуска Kind Eye зайдите в Недавние приложения, подержите палец на окошке с приложением Kind Eye и нажмите замочек. Это нужно, чтобы приложение не выгружалось из памяти устройства при принудительной очистке памяти.</string>
+
+    <!-- Общий дисклеймер внизу PermissionsActivity -->
+    <string name="perm_general_disclaimer_title">Важное примечание</string>
+    <string name="perm_general_disclaimer_body">Полностью избежать обхода контроля расстояния при наличии у ребёнка достаточных технических навыков не представляется возможным, поскольку Android имеет встроенный защитный механизм, заботящийся о приватности и безопасности пользователя, который нельзя обойти обычным программным путём. Родители продолжают нести ответственность за здоровье своих детей и их взаимодействие с экранами устройств.</string>
+
+</resources>

@@ -1,0 +1,7 @@
+<device-admin>
+<uses-policies>
+<!--  No extra policies needed.
+             Device Admin registration alone prevents MIUI / Android from
+             force-stopping or clearing the app from recents.  -->
+</uses-policies>
+</device-admin>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kind Eye</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_eye_exercise">Eye Exercises</string>
+    <string name="title_permissions">Permissions</string>
+    <string name="title_who_info">WHO Guidelines</string>
+    <string name="title_calibration">Calibration</string>
+
+    <!-- Main screen -->
+    <string name="app_subtitle">Child eye protection. Before launching, calibrate the distance in the settings.</string>
+    <string name="btn_start_monitoring">Enable Protection</string>
+    <string name="btn_stop_monitoring">Disable Protection</string>
+    <string name="btn_settings">Settings</string>
+    <string name="btn_permissions">Permissions</string>
+    <string name="btn_who_info">WHO Guidelines</string>
+    <string name="status_running">Protection is ON</string>
+    <string name="status_stopped">Protection is OFF</string>
+    <string name="status_sub_running">Camera is monitoring screen distance</string>
+    <string name="status_sub_stopped">Tap the button to enable protection</string>
+
+    <!-- Info card on main screen -->
+    <string name="info_current_settings">Current settings</string>
+    <string name="info_distance">Distance: at least %d cm</string>
+    <string name="info_break">Break: every %d min, %d min rest</string>
+    <string name="info_language">Language: %s</string>
+    <string name="info_who_title">WHO recommendations</string>
+    <string name="info_who_1">20-20-20 rule: every 20 min look into the distance</string>
+    <string name="info_who_2">Distance at least 40 cm for the device</string>
+    <string name="info_who_3">Under 5 years: no more than 1 hour of screen time per day</string>
+
+    <!-- Default messages — NO emojis (TTS reads them) -->
+    <string name="default_distance_message">Sweetie, move a little further from the screen</string>
+    <string name="default_break_message">Time for a little break, let\'s rest together</string>
+    <string name="thank_you">Great job! You are taking care of your eyes</string>
+
+    <!-- Break announcement with duration — NO emojis -->
+    <string name="break_announcement">Break time! Rest for %d minutes</string>
+    <string name="break_rest_remaining">Rest remaining:</string>
+    <string name="break_over">Break is over! Time to continue.</string>
+    <string name="break_word">Break</string>
+
+    <!-- Break warnings — NO emojis -->
+    <string name="break_warning_5min">Break coming soon, in 5 minutes</string>
+    <string name="break_warning_1min">Break in one minute, get ready</string>
+
+    <!-- Settings sections — emojis only in code, NOT here -->
+    <string name="settings_section_language">Language</string>
+    <string name="settings_section_calibration">Calibration</string>
+    <string name="settings_section_break">Breaks</string>
+    <string name="settings_section_exercise">Eye Exercises</string>
+
+    <string name="pref_distance_message">Warning message (too close)</string>
+    <string name="pref_distance_tts">Read warning aloud</string>
+    <string name="pref_thank_you_message">Praise message (after moving back)</string>
+    <string name="pref_thank_you_tts">Read praise aloud</string>
+    <string name="pref_break_interval">Break every (minutes)</string>
+    <string name="pref_break_duration">Break duration (minutes)</string>
+    <string name="pref_break_message">Break message</string>
+    <string name="pref_break_tts">Read break message aloud</string>
+    <string name="pref_exercise_tts">Read exercises aloud</string>
+    <string name="pref_exercise_during_break">Do eye exercises during break</string>
+    <string name="pref_language">App language</string>
+
+    <string name="label_break_every">Break every %d min (WHO recommends: 20 min)</string>
+    <string name="label_break_duration">Duration: %d min</string>
+    <string name="label_distance_cm">%d cm</string>
+    <string name="label_minutes">%d min</string>
+
+    <string name="btn_save">Save</string>
+    <string name="btn_grant">Allow</string>
+    <string name="btn_calibrate">Calibrate</string>
+    <string name="btn_calibrate_start">Start Calibration</string>
+    <string name="settings_saved">Settings saved!</string>
+
+    <!-- Settings hints -->
+    <string name="calibration_full_hint">Place the device at the desired distance from the child\'s face, make sure the face is visible in the camera, then tap Calibrate. The distance slider sets the reference distance for calibration.</string>
+    <string name="lang_switch_hint">After changing the language, set new custom messages for the events listed below.</string>
+    <string name="section_praise">Praise message</string>
+    <string name="break_interval_label">Take a break every N minutes:</string>
+    <string name="break_duration_label">Break duration:</string>
+    <string name="try_exercise">Try eye exercises</string>
+
+    <!-- Permissions -->
+    <string name="perm_camera_title">Camera</string>
+    <string name="perm_camera_reason">Required to measure eye-to-screen distance. No video is recorded.</string>
+    <string name="perm_overlay_title">Display over other apps</string>
+    <string name="perm_overlay_reason">Required to show break timer and warnings on top of any app.</string>
+    <string name="perm_notification_title">Notifications</string>
+    <string name="perm_notification_reason">Required for persistent background protection notification.</string>
+    <string name="perm_all_ok">All permissions granted! You can enable protection.</string>
+    <string name="perm_not_all">Please grant all permissions for full functionality.</string>
+    <string name="perm_granted">Granted</string>
+    <string name="perm_denied">Not granted</string>
+
+    <!-- Eye exercises — FIX 2: removed repetition counts -->
+    <string name="exercise_skip">Skip</string>
+    <string name="exercise_next">Next</string>
+    <string name="exercise_done">Excellent! Your eyes had a great rest!</string>
+    <string name="exercise_of">Exercise</string>
+    <string name="exercise_of_total">of</string>
+    <string name="exercise_1_title">Blinking</string>
+    <string name="exercise_1_desc">Blink quickly, like a butterfly flapping its wings</string>
+    <string name="exercise_2_title">Up and Down</string>
+    <string name="exercise_2_desc">Slowly look up, then slowly look down</string>
+    <string name="exercise_3_title">Left and Right</string>
+    <string name="exercise_3_desc">Look left, then look right. Do not move your head</string>
+    <string name="exercise_4_title">Circles</string>
+    <string name="exercise_4_desc">Slowly roll your eyes in a circle, one way then the other</string>
+    <string name="exercise_5_title">Near and Far</string>
+    <string name="exercise_5_desc">Look at your fingertip, now look far into the distance</string>
+    <string name="exercise_6_title">Palm Cups</string>
+    <string name="exercise_6_desc">Rub your palms together, then cup your warm hands gently over your closed eyes</string>
+
+    <!-- Notification -->
+    <string name="notif_channel_name">Kind Eye — Eye Protection</string>
+    <string name="notif_title">Kind Eye is running</string>
+    <string name="notif_text">Eye protection is active</string>
+    <string name="notif_stop">Stop</string>
+
+    <!-- Calibration -->
+    <string name="calibration_place_face">Place the child\'s face inside the oval at the correct distance</string>
+    <string name="calibration_face_found">Face detected! Hold still</string>
+    <string name="calibration_success">Done! Calibrated!</string>
+    <string name="calibration_no_face">No face detected. Make sure the face is visible in the camera.</string>
+    <string name="calibration_distance_label">How far is the face right now?</string>
+    <string name="calibration_hint">Make sure the face is well-lit and looking straight at the camera</string>
+
+    <!-- WHO Info -->
+    <string name="who_title">WHO Guidelines</string>
+    <string name="who_rule_title">The 20-20-20 Rule</string>
+    <string name="who_rule_desc">Every 20 minutes, look at something 20 feet (6 m) away for 20 seconds. This relaxes the eye muscles and reduces digital eye strain.</string>
+    <string name="who_distance_title">Recommended Viewing Distances</string>
+    <string name="who_distance_note">Based on WHO and AAO (American Academy of Ophthalmology) recommendations: maintain arm\'s length distance and a downward viewing angle of 15–20 degrees.</string>
+    <string name="who_age_title">Screen Time by Age (WHO 2019)</string>
+    <string name="who_tips_title">Tips for Parents</string>
+
+    <!-- WHO distance table rows -->
+    <string name="who_dist_phone">Smartphone</string>
+    <string name="who_dist_phone_val">30–40 cm minimum</string>
+    <string name="who_dist_tablet_small">Tablet 7–8\"</string>
+    <string name="who_dist_tablet_small_val">40–50 cm minimum</string>
+    <string name="who_dist_tablet_large">Tablet 10–11\"</string>
+    <string name="who_dist_tablet_large_val">50–60 cm minimum</string>
+    <string name="who_dist_laptop">Laptop 13–15\"</string>
+    <string name="who_dist_laptop_val">60–70 cm minimum</string>
+    <string name="who_dist_monitor">Desktop monitor</string>
+    <string name="who_dist_monitor_val">60–90 cm minimum</string>
+
+    <!-- WHO age table rows -->
+    <string name="who_age_0">Under 2 years</string>
+    <string name="who_age_0_norm">Not recommended</string>
+    <string name="who_age_2">2–5 years</string>
+    <string name="who_age_2_norm">Max 1 hour per day</string>
+    <string name="who_age_6">6–12 years</string>
+    <string name="who_age_6_norm">Max 2 hours per day</string>
+    <string name="who_age_12">12–18 years</string>
+    <string name="who_age_12_norm">Moderate use</string>
+    <string name="who_source">Source: WHO Guidelines on physical activity, sedentary behaviour and sleep for children under 5, 2019</string>
+
+    <!-- WHO tips -->
+    <string name="who_tip_1">Use devices in good lighting, not in the dark</string>
+    <string name="who_tip_2">Keep good posture: straight back, screen at eye level</string>
+    <string name="who_tip_3">Take breaks for walks — the best rest for your eyes</string>
+    <string name="who_tip_4">No screen time 1 hour before bed — blue light disrupts sleep</string>
+    <string name="who_tip_5">Adjust screen brightness to match room lighting</string>
+
+    <!-- Misc -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="error_tts">Text-to-speech error. Check TTS settings in Android system settings.</string>
+    <string name="break_time_remaining">%d min of rest remaining</string>
+    <string name="new_session_start">Welcome back! Starting a new session.</string>
+
+    <!-- Break screen (BreakActivity) -->
+    <string name="title_break">Break Time</string>
+    <string name="notif_break_title">Break time!</string>
+    <string name="notif_break_channel_name">Kind Eye — Break Alarm</string>
+
+    <!-- About screen -->
+    <string name="title_about">About the Author</string>
+    <string name="btn_about">About the Author</string>
+    <string name="about_author_header">About the Author</string>
+    <string name="about_linkedin_title">My LinkedIn page</string>
+    <string name="about_donate_title">Support the project</string>
+    <string name="about_donate_hint">The app is free, but you can thank the author by sending a donation in your preferred cryptocurrency.</string>
+    <string name="about_free_note">Kind Eye is completely free and open source. Made with love for children\'s health.</string>
+    <string name="about_tap_to_copy">Tap address to copy</string>
+    <string name="about_copied_eth">Ethereum (ETH) address copied</string>
+    <string name="about_copied_sol">Solana (SOL) address copied</string>
+    <string name="about_copied_trx">TRON (TRX) address copied</string>
+
+    <!-- Parental control -->
+    <string name="settings_section_parental">Parental Control</string>
+    <string name="parental_hint">Set a password to prevent the child from opening the app and changing settings. The password will be required every time the app is opened.</string>
+    <string name="parental_status_active">Password is set — protection active</string>
+    <string name="parental_status_inactive">No password set</string>
+    <string name="parental_new_password_hint">New password (min. 4 characters)</string>
+    <string name="parental_confirm_password_hint">Confirm password</string>
+    <string name="parental_btn_set">Set Password</string>
+    <string name="parental_btn_change">Change Password</string>
+    <string name="parental_btn_remove">Remove Password</string>
+    <string name="parental_saved">Password saved!</string>
+    <string name="parental_removed">Password removed</string>
+    <string name="parental_error_empty">Please enter a password</string>
+    <string name="parental_error_too_short">Password must be at least 4 characters</string>
+    <string name="parental_error_mismatch">Passwords do not match</string>
+    <string name="parental_enter_password">Enter parental password</string>
+    <string name="parental_password_hint">Password</string>
+    <string name="parental_wrong_password">Incorrect password. Try again.</string>
+    <string name="parental_btn_enter">Confirm</string>
+
+
+    <!-- Device Admin permission -->
+    <string name="perm_admin_title">Device Administrator</string>
+    <string name="perm_admin_reason">Optionally. Prevents stopping via system settings.</string>
+
+
+    <!-- PermissionsActivity MIUI instruction section -->
+    <string name="perm_instruction_title">Additional Device Setup</string>
+    <string name="perm_instruction_disclaimer">The following instructions are relevant for modern devices running MIUI/HyperOS. Steps may differ depending on your device manufacturer.</string>
+    <string name="perm_instruction_1_title">1. Disable battery restrictions</string>
+    <string name="perm_instruction_1_body">Go to Settings → Apps → Kind Eye → Power → No restrictions. This prevents the system from closing the app when it thinks the app is not being actively used.</string>
+    <string name="perm_instruction_2_title">2. Enable background autostart</string>
+    <string name="perm_instruction_2_body">Go to Settings → Apps → Background autostart → Kind Eye. This allows the system to automatically restart the app if it was closed.</string>
+    <string name="perm_instruction_3_title">3. Lock the app in Recents</string>
+    <string name="perm_instruction_3_body">After launching Kind Eye, open Recent Apps, long-press the Kind Eye window, then tap the lock icon. This prevents the app from being removed from memory during a manual memory cleanup.</string>
+
+    <!-- General disclaimer at bottom of PermissionsActivity -->
+    <string name="perm_general_disclaimer_title">Important Notice</string>
+    <string name="perm_general_disclaimer_body">It is not possible to completely prevent bypassing distance monitoring if the child has sufficient technical skills. Android includes a built-in privacy and security mechanism that cannot be circumvented through standard programming means. Parents remain responsible for their children\'s health and screen usage habits.</string>
+
+</resources>
