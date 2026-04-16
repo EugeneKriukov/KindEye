@@ -1,7 +1,6 @@
 package com.eyeguard.app.ui
 
 import android.Manifest
-import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -19,7 +18,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.eyeguard.app.R
-import com.eyeguard.app.services.EyeGuardAdminReceiver
 
 class PermissionsActivity : AppCompatActivity() {
 
@@ -36,20 +34,12 @@ class PermissionsActivity : AppCompatActivity() {
     private lateinit var permItems: List<PermItem>
     private lateinit var tvSummary: TextView
 
-    private val adminComponent by lazy {
-        ComponentName(this, EyeGuardAdminReceiver::class.java)
-    }
-
     private val requestCameraLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { updateAll() }
 
     private val requestNotifLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { updateAll() }
-
-    private val requestAdminLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
     ) { updateAll() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +49,6 @@ class PermissionsActivity : AppCompatActivity() {
             PermItem("camera",       "📷", getString(R.string.perm_camera_title),       getString(R.string.perm_camera_reason)),
             PermItem("overlay",      "🪟", getString(R.string.perm_overlay_title),      getString(R.string.perm_overlay_reason)),
             PermItem("notification", "🔔", getString(R.string.perm_notification_title), getString(R.string.perm_notification_reason)),
-            PermItem("admin",        "🛡️", getString(R.string.perm_admin_title),        getString(R.string.perm_admin_reason))
         )
 
         setContentView(buildUi())
@@ -343,12 +332,6 @@ class PermissionsActivity : AppCompatActivity() {
             ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
                     PackageManager.PERMISSION_GRANTED
         else true
-
-        "admin" -> {
-            val dpm = getSystemService(DevicePolicyManager::class.java)
-            dpm.isAdminActive(adminComponent)
-        }
-
         else -> false
     }
 
@@ -359,14 +342,6 @@ class PermissionsActivity : AppCompatActivity() {
                 Uri.parse("package:$packageName")))
             "notification" -> if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
                 requestNotifLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            "admin"        -> {
-                val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN).apply {
-                    putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, adminComponent)
-                    putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,
-                        getString(R.string.perm_admin_reason))
-                }
-                requestAdminLauncher.launch(intent)
-            }
         }
     }
 
