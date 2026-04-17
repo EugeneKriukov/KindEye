@@ -103,6 +103,11 @@ class MonitoringService : Service(), LifecycleOwner {
     // ── Audio focus — pauses background media apps during break ──
     private var audioFocusRequest: AudioFocusRequest? = null   // API 26+
 
+    // ── App restore after break ───────────────────────────────────
+    // Package name of the app that was in foreground when break started.
+    // After break ends we re-launch it so the child returns to where they were.
+    private var lastForegroundPackage: String? = null
+
     // ── Periodic break check (every 30 s) ────────────────────────
     private val breakCheckRunnable = object : Runnable {
         override fun run() {
@@ -534,6 +539,10 @@ class MonitoringService : Service(), LifecycleOwner {
         stopCamera()
         mainHandler.removeCallbacks(breakCheckRunnable)
 
+        // Move current foreground app to background and remember it for restoration.
+        // Must happen BEFORE audio focus so the app has time to process the focus loss.
+        goToHomeScreen()
+
         // Pause background media apps (e.g. YouTube Kids)
         requestAudioFocusForBreak()
 
@@ -612,6 +621,8 @@ class MonitoringService : Service(), LifecycleOwner {
         overlayManager.dismissBreakCountdown()
         overlayManager.dismiss()
         if (prefs.breakTtsEnabled) ttsManager.speak(getString(R.string.break_over))
+        // Restore the app that was in foreground before break
+        restoreForegroundApp()
         startNewSession()
         Log.d(TAG, "Break ended — new session")
     }
@@ -619,6 +630,63 @@ class MonitoringService : Service(), LifecycleOwner {
     private fun clearBreakState() {
         prefs.isBreakActive  = false
         prefs.breakEndTimeMs = 0L
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // App foreground management during break
+    // ─────────────────────────────────────────────────────────────
+
+    /**
+     * Records which app was on top, then sends the device to the Home screen.
+     * Called at break start so the child's app goes to background and the
+     * break overlay appears over the launcher (not over YouTube etc.).
+     */
+    private fun goToHomeScreen() {
+        // Remember what was in the foreground so we can restore it after break.
+        // getRunningTasks() is deprecated since API 21 but still works in practice
+        // for the topActivity of the currently visible task.
+        try {
+            @Suppress("DEPRECATION")
+            val tasks = (getSystemService(Context.ACTIVITY_SERVICE) as android.app.ActivityManager)
+                .getRunningTasks(5)
+            lastForegroundPackage = tasks
+                ?.firstOrNull { it.topActivity?.packageName != packageName }
+                ?.topActivity?.packageName
+            Log.d(TAG, "Saved foreground: $lastForegroundPackage")
+        } catch (e: Exception) {
+            Log.w(TAG, "Could not get foreground app", e)
+            lastForegroundPackage = null
+        }
+
+        try {
+            startActivity(
+                Intent(Intent.ACTION_MAIN).apply {
+                    addCategory(Intent.CATEGORY_HOME)
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                }
+            )
+        } catch (e: Exception) {
+            Log.w(TAG, "Could not go to home screen", e)
+        }
+    }
+
+    /**
+     * After break ends, re-launches the app that was in foreground before the break.
+     * Uses getLaunchIntentForPackage which brings an already-running app to the front
+     * without restarting it (FLAG_RESET_TASK_IF_NEEDED preserves task state).
+     */
+    private fun restoreForegroundApp() {
+        val pkg = lastForegroundPackage ?: return
+        lastForegroundPackage = null
+        try {
+            val intent = packageManager.getLaunchIntentForPackage(pkg) ?: return
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                    Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
+            startActivity(intent)
+            Log.d(TAG, "Restored foreground: $pkg")
+        } catch (e: Exception) {
+            Log.w(TAG, "Could not restore foreground app: $pkg", e)
+        }
     }
 
     // ─────────────────────────────────────────────────────────────
