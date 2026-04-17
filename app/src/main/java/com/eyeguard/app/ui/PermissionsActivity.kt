@@ -231,7 +231,8 @@ class PermissionsActivity : AppCompatActivity() {
         listOf(
             R.string.perm_instruction_1_title to R.string.perm_instruction_1_body,
             R.string.perm_instruction_2_title to R.string.perm_instruction_2_body,
-            R.string.perm_instruction_3_title to R.string.perm_instruction_3_body
+            R.string.perm_instruction_3_title to R.string.perm_instruction_3_body,
+            R.string.perm_instruction_4_title to R.string.perm_instruction_4_body
         ).forEachIndexed { idx, (titleRes, bodyRes) ->
             if (idx > 0) card.addView(spacer(dp(10)))
             card.addView(buildStepCard(getString(titleRes), getString(bodyRes)))
