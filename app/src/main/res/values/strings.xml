@@ -220,6 +220,9 @@
     <string name="perm_instruction_3_title">3. Lock the app in Recents</string>
     <string name="perm_instruction_3_body">After launching Kind Eye, open Recent Apps, long-press the Kind Eye window, then tap the lock icon. This prevents the app from being removed from memory during a manual memory cleanup.</string>
 
+    <string name="perm_instruction_4_title">4. Disable "Pause app activity if unused"</string>
+    <string name="perm_instruction_4_body">Go to Settings → Apps → Kind Eye → Disable the toggle "Pause app activity if unused". This prevents the system from hibernating the app when it considers it idle.</string>
+
     <!-- General disclaimer at bottom of PermissionsActivity -->
     <string name="perm_general_disclaimer_title">Important Notice</string>
     <string name="perm_general_disclaimer_body">It is not possible to completely prevent bypassing distance monitoring if the child has sufficient technical skills. Android includes a built-in privacy and security mechanism that cannot be circumvented through standard programming means. Parents remain responsible for their children\'s health and screen usage habits.</string>
